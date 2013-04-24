@@ -9,6 +9,7 @@ module.exports = (grunt) ->
         files:
           'dist/iv.js': 'iv.coffee'
 
+
     uglify:
       options: {}
       my_target:

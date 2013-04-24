@@ -59,6 +59,6 @@ class Application
     member.instance
 
 
-
+# export to browser and nodejs alike
 module?.exports = -> new IV
-window?.IV = IV
+window?.iv = IV
