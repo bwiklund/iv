@@ -49,7 +49,7 @@ class Application
   resolve: (name) ->
     member = @members[name]
 
-    throw new Error( "circular dependency on #{name}" ) if member.startedProviding
+    throw new Error( "circular dependency on #{name}" ) if member.startedProviding && !member.instance?
     member.startedProviding = true
 
     if !member.instance?

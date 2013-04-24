@@ -50,7 +50,7 @@
       var args, dep, member;
 
       member = this.members[name];
-      if (member.startedProviding) {
+      if (member.startedProviding && (member.instance == null)) {
         throw new Error("circular dependency on " + name);
       }
       member.startedProviding = true;
