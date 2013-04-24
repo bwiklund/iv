@@ -49,7 +49,7 @@ val = mod.instance().resolve "FavoriteAnimal"
 
 Of course, you can also return functions, like so:
 
-```
+```coffeescript
 mod = iv()
 mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
 func = mod.instance().resolve "AnimalImpersonator"
