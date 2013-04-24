@@ -59,7 +59,7 @@ func = mod.instance().resolve "AnimalImpersonator"
 
 Note the funky "-> ->". The first function is the provider, which is called once when the dependency is resolved. It returns what's inside, which is another function in this case.
 
-Notes:
+Notes
 ===
 The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
 
@@ -82,7 +82,7 @@ func = mod.instance().resolve "AnimalImpersonator"
 console.log func()
 ```
 
-Contributing:
+Contributing
 ===
 Any contributions are welcome.
 
@@ -102,7 +102,7 @@ To run tests:
 npm test
 ```
 
-Todo:
+Todo
 ===
 - use reflection to infer dependencies from function argument names, like angularjs
 - expand this documentation with more real world examples
