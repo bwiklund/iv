@@ -61,4 +61,4 @@ class Application
 
 # export to browser and nodejs alike
 module?.exports = -> new IV
-window?.iv = IV
+window?.iv = -> new IV

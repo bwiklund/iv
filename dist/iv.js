@@ -82,7 +82,9 @@
   }
 
   if (typeof window !== "undefined" && window !== null) {
-    window.iv = IV;
+    window.iv = function() {
+      return new IV;
+    };
   }
 
 }).call(this);
