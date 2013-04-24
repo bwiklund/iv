@@ -1,3 +1,4 @@
+![Logo](https://raw.github.com/bwiklund/iv/master/docs/logo.png)
 iv
 ===
 a tiny dependency injection library
