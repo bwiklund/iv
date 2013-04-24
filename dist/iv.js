@@ -9,7 +9,8 @@
     IV.prototype.define = function(name, deps, func) {
       if (deps.constructor === Function) {
         func = deps;
-        deps = /\(.*\)/.exec(deps.replace(/\s/g, '')).slice(1, -1).split(',');
+        deps = /\(.*\)/.exec(deps.toString())[0].slice(1, -1).replace(/\s/g, '');
+        deps = deps.length === 0 ? [] : deps.split(',');
       }
       this.members[name] = {
         name: name,
