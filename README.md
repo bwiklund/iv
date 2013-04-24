@@ -10,13 +10,13 @@ Usage
 ===
 ```coffeescript
 mod = iv()
-  mod.define 'foo', [], -> 'bar'
-  mod.define 'main', ['foo'], (foo) -> foo
+mod.define 'foo', [], -> 'bar'
+mod.define 'main', ['foo'], (foo) -> foo
 
-  app = mod.instance()
-  main = app.resolve 'main'
+app = mod.instance()
+main = app.resolve 'main'
 
-  assert.equal main, 'bar'
+assert.equal main, 'bar'
 ```
 
 wip
