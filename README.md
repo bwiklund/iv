@@ -19,4 +19,6 @@ main = app.resolve 'main'
 assert.equal main, 'bar'
 ```
 
-wip
+TODO: 
+- use reflection to infer dependencies from function argument names, like angularjs
+- expand this documentation
