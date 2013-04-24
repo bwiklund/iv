@@ -62,6 +62,26 @@ Notes:
 ===
 The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
 
+Contributing:
+===
+Any contributions are welcome.
+
+To set up (assuming node is installed):
+```
+npm install
+npm install -g grunt
+```
+
+To build:
+```
+grunt
+```
+
+To run tests:
+```
+npm test
+```
+
 Todo:
 ===
 - use reflection to infer dependencies from function argument names, like angularjs
