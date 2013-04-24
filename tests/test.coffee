@@ -1,5 +1,5 @@
 assert = require 'assert'
-iv = require('../module.coffee')
+iv = require('../iv')
 
 suite "iv", ->
 

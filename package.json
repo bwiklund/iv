@@ -1,8 +1,8 @@
 {
-  "name": "inject.js",
+  "name": "iv.js",
   "version": "0.0.0",
-  "description": "ERROR: No README.md file found!",
-  "main": "dist/module.js",
+  "description": "a tiny dependency injection library",
+  "main": "dist/iv.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha -u tdd tests/test.coffee -r coffee-script"
   },

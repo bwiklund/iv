@@ -1,4 +1,4 @@
 iv
 ===
 
-tiny dependency injection library
+a tiny dependency injection library
