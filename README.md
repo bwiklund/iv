@@ -18,13 +18,13 @@ Usage
 mod = iv()
 
 # our "service"
-mod.define 'SomeService', [], -> 
+mod.define 'SomeService', -> 
   class
     request: -> "a service!"
 
 # the entry point of our app. There is 
 # nothing special about the name "Main"
-mod.define 'FooApp', ['SomeService'], (SomeService) -> 
+mod.define 'FooApp', (SomeService) -> 
   class
     constructor: ->
       @service = new SomeService()
@@ -39,11 +39,13 @@ main = new FooApp()
 
 In the above example, note that there's nothing special about the two classes I'm declaring.
 
+*Note that #define is reading the argument names of the function being passed in, and using that to determine what it depends on. If you are minifying code, or wish to have argument names that differ from their definition's names, read the section on minifying below.
+
 Here is a terribly advanced example of using values as dependencies instead:
 
 ```coffeescript
 mod = iv()
-mod.define 'FavoriteAnimal', [], -> "GIRAFFES!"
+mod.define 'FavoriteAnimal', -> "GIRAFFES!"
 val = mod.instance().resolve "FavoriteAnimal"
 # val == "GIRAFFES!"
 ```
@@ -52,7 +54,7 @@ Of course, you can also return functions, like so:
 
 ```coffeescript
 mod = iv()
-mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
+mod.define 'AnimalImpersonator', -> -> "...what sound does a giraffe make?"
 func = mod.instance().resolve "AnimalImpersonator"
 # func() == "...what sound does a giraffe make?"
 ```
@@ -62,6 +64,20 @@ Note the funky "-> ->". The first function is the provider, which is called once
 Notes:
 ===
 The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
+
+About minification
+===
+Minifying / uglifying you code can break the convenience of defining dependencies like this:
+```coffeescript
+mod.define 'Foo', (Arg1,Arg2) ->
+```
+
+This is because minification often changes argument names, which breaks the automatic parsing of them. The solution is to use three arguments, like so:
+```coffeescript
+mod.define 'Foo', ['Arg1',Arg2'], (Arg1,Arg2) ->
+```
+
+This is mostly how angularjs handles the situation, except that the function is a third argument to the definition, and not the final element in the array.
 
 Node.js
 ===
@@ -76,7 +92,7 @@ npm install git://github.com/bwiklund/iv.git
 iv = require 'iv'
 
 mod = iv()
-mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
+mod.define 'AnimalImpersonator', -> -> "...what sound does a giraffe make?"
 func = mod.instance().resolve "AnimalImpersonator"
 
 console.log func()
@@ -104,5 +120,4 @@ npm test
 
 Todo:
 ===
-- use reflection to infer dependencies from function argument names, like angularjs
 - expand this documentation with more real world examples
