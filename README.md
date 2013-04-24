@@ -2,8 +2,9 @@ iv
 ===
 a tiny dependency injection library
 
-(Minified: 877 bytes)[https://raw.github.com/bwiklund/iv/master/dist/iv.min.js]
-(Minified: 877 bytes)[https://raw.github.com/bwiklund/iv/master/dist/iv.min.js]
+__[iv.min.js](https://raw.github.com/bwiklund/iv/master/dist/iv.min.js)__ - 0.9 kB
+
+__[iv.js](https://raw.github.com/bwiklund/iv/master/dist/iv.js)__ - 1.8 kB
 
 Goals
 ===
