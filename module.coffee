@@ -1,5 +1,5 @@
 # a collection of dependencies
-class Module
+class IV
   
   constructor: ->
     @members = {}
@@ -20,7 +20,6 @@ class Module
       for k,v of provider
         clone[name][k] = v
 
-    console.log clone
     new Application clone
 
 
@@ -44,11 +43,5 @@ class Application
 
 
 
-mod = new Module
-mod.define 'foo', [], -> 'bar'
-mod.define 'main', ['foo'], (foo) -> foo
-
-app = mod.instance()
-main = app.resolve 'main'
-
-console.log main
+module?.exports = -> new IV
+window?.IV = IV

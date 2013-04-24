@@ -4,9 +4,14 @@
   "description": "ERROR: No README.md file found!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/mocha -u tdd tests/test.coffee -r coffee-script"
   },
   "repository": "",
   "author": "",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "chai": "~1.5.0",
+    "mocha": "~1.9.0",
+    "coffee-script": "~1.6.2"
+  }
 }
