@@ -8,7 +8,7 @@ to provide super simple dependency injection, in the style of angularjs and requ
 
 Usage
 ===
-```
+```coffeescript
 mod = iv()
     mod.define 'foo', [], -> 'bar'
     mod.define 'main', ['foo'], (foo) -> foo
