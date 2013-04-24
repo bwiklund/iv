@@ -1,6 +1,9 @@
 module.exports = (grunt) ->
 
   grunt.initConfig
+
+    clean: ['dist/*']
+
     coffee:
       compile:
         files:
@@ -13,7 +16,8 @@ module.exports = (grunt) ->
           'dist/iv.min.js': ['dist/iv.js']
 
 
-  grunt.loadNpmTasks('grunt-contrib-coffee')
-  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'default', ['coffee','uglify']
+  grunt.registerTask 'default', ['clean','coffee','uglify']
