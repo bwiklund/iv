@@ -1,13 +1,16 @@
 {
-  "name": "iv.js",
+  "name": "iv",
   "version": "0.0.0",
   "description": "a tiny dependency injection library",
   "main": "dist/iv.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha -u tdd tests/test.coffee -r coffee-script"
   },
-  "repository": "",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/bwiklund/iv.git"
+  },
+  "author": "Ben Wiklund",
   "license": "BSD",
   "dependencies": {},
   "devDependencies": {
