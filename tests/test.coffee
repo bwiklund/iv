@@ -68,3 +68,11 @@ suite "iv", ->
     assert.equal func(), "...what sound does a giraffe make?"
 
 
+  test "argument reflection", ->
+    mod = iv()
+    mod.define 'Foo', -> "bar"
+    mod.define 'Main', (Foo) -> Foo
+    bar = mod.instance().resolve 'Main'
+    assert.equal bar, 'bar'
+
+

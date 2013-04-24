@@ -1,19 +1,33 @@
-
-
 # module class
 class IV
   
   constructor: ->
     @members = {}
 
+  # overloaded
+  #
+  # can be called like #define 'name', ['dep1','dep2'], (dep1, dep2) -> 
+  #
+  # or like #define 'name', (dep1,dep2) ->
+  #
+  # the first version is to defeat minification. the second is to be as
+  # concise as possible for convenience, if you're not minifying
   define: (name, deps, func) ->
+    # use reflection if possible
+    if deps.constructor == Function
+      func = deps
+      # golf
+      deps = /\(.*\)/.exec(deps.toString())[0].slice(1,-1).replace(/\s/g,'')
+      # get around the fact that "".split(",") => [''], and not the [] that we want
+      deps = if deps.length == 0 then [] else deps.split(',')
+
     @members[name] =
       name: name
       deps: deps
       providerFunc: func
       instance: null
       startedProviding: false
-    return # explicitly return nothing (for now)
+    return # force coffeescript to omit return
 
   instance: ->
     # quick handrolled deep copy, didn't want to depend on any libraries for this
