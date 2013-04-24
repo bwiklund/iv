@@ -16,8 +16,10 @@ class IV
     # use reflection if possible
     if deps.constructor == Function
       func = deps
-      # golf
-      deps = /\(.*\)/.exec(deps.toString())[0].slice(1,-1).replace(/\s/g,'')
+      # get the argument names from the function.toString() output
+      deps = /\(.*\)/.exec(deps.toString())[0]
+                     .slice(1,-1)
+                     .replace(/\s/g,'')
       # get around the fact that "".split(",") => [''], and not the [] that we want
       deps = if deps.length == 0 then [] else deps.split(',')
 
