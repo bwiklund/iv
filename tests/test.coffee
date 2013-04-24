@@ -38,7 +38,6 @@ suite "iv", ->
     # a 'service'
     mod.define 'SomeService', [], -> 
       class
-        constructor: ->
         request: -> "a service!"
 
     # the entry point of our app. There is 

@@ -12,14 +12,27 @@ To provide super simple dependency injection, in the style of angularjs and requ
 Usage
 ===
 ```coffeescript
+# new module
 mod = iv()
-mod.define 'foo', [], -> 'bar'
-mod.define 'main', ['foo'], (foo) -> foo
 
-app = mod.instance()
-main = app.resolve 'main'
+# our "service"
+mod.define 'SomeService', [], -> 
+  class
+    request: -> "a service!"
 
-assert.equal main, 'bar'
+# the entry point of our app. There is 
+# nothing special about the name "Main"
+mod.define 'FooApp', ['SomeService'], (SomeService) -> 
+  class
+    constructor: ->
+      @service = new SomeService()
+
+# we want to start our app with and instance of FooApp,
+# and we do so here. Note there is no special "main" 
+# dependency, you can #resolve whatever you want,
+# whenever you want
+FooApp = mod.instance().resolve 'FooApp'
+main = new FooApp()
 ```
 
 TODO
