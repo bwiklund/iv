@@ -28,3 +28,29 @@ suite "iv", ->
       exception = e
 
     assert.equal exception.constructor, Error
+
+
+  test "real world-ish OOP example", ->
+
+    # new module
+    mod = iv()
+
+    # a 'service'
+    mod.define 'SomeService', [], -> 
+      class
+        constructor: ->
+        request: -> "a service!"
+
+    # the entry point of our app. There is 
+    # nothing special about the name "Main"
+    mod.define 'FooApp', ['SomeService'], (SomeService) -> 
+      class
+        constructor: ->
+          @service = new SomeService()
+
+    # choosing an entry point for the app
+    FooApp = mod.instance().resolve 'FooApp'
+    main = new FooApp()
+
+    assert.equal main.service.request(), "a service!"
+
