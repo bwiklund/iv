@@ -17,7 +17,8 @@
         deps: deps,
         providerFunc: func,
         instance: null,
-        startedProviding: false
+        startedProviding: false,
+        finishedProviding: false
       };
     };
 
@@ -50,11 +51,11 @@
       var args, dep, member;
 
       member = this.members[name];
-      if (member.startedProviding && (member.instance == null)) {
+      if (member.startedProviding && !member.finishedProviding) {
         throw new Error("circular dependency on " + name);
       }
       member.startedProviding = true;
-      if (member.instance == null) {
+      if (!member.finishedProviding) {
         args = (function() {
           var _i, _len, _ref, _results;
 
@@ -67,6 +68,7 @@
           return _results;
         }).call(this);
         member.instance = member.providerFunc.apply({}, args);
+        member.finishedProviding = true;
       }
       return member.instance;
     };
