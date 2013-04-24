@@ -36,7 +36,33 @@ FooApp = mod.instance().resolve 'FooApp'
 main = new FooApp()
 ```
 
-TODO
+In the above example, note that there's nothing special about the two classes I'm declaring.
+
+Here is a terribly advanced example of using values as dependencies instead:
+
+```coffeescript
+mod = iv()
+mod.define 'FavoriteAnimal', [], -> "GIRAFFES!"
+val = mod.instance().resolve "FavoriteAnimal"
+# val == "GIRAFFES!"
+```
+
+Of course, you can also return functions, like so:
+
+```
+mod = iv()
+mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
+func = mod.instance().resolve "AnimalImpersonator"
+# func() == "...what sound does a giraffe make?"
+```
+
+Note the funky "-> ->". The first function is the provider, which is called once when the dependency is resolved. It returns what's inside, which is another function in this case.
+
+Notes:
+===
+The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
+
+Todo:
 ===
 - use reflection to infer dependencies from function argument names, like angularjs
 - expand this documentation with more real world examples

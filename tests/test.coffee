@@ -53,3 +53,18 @@ suite "iv", ->
 
     assert.equal main.service.request(), "a service!"
 
+
+  test "values", ->
+    mod = iv()
+    mod.define 'FavoriteAnimal', [], -> "GIRAFFES!"
+    val = mod.instance().resolve "FavoriteAnimal"
+    assert.equal val, "GIRAFFES!"
+
+
+  test "functions", ->
+    mod = iv()
+    mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
+    func = mod.instance().resolve "AnimalImpersonator"
+    assert.equal func(), "...what sound does a giraffe make?"
+
+
