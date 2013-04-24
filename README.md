@@ -39,7 +39,7 @@ main = new FooApp()
 
 In the above example, note that there's nothing special about the two classes I'm declaring.
 
-*Note that #define is reading the argument names of the function being passed in, and using that to determine what it depends on. If you are minifying code, or wish to have argument names that differ from their definition's names, read the section on minifying below.
+*Note that #define is reading the argument names of the function being passed in, and using that to determine what it depends on. If you are minifying code, or wish to have argument names that differ from their definition's names, read the [section](#about-minification) on minication below.
 
 Here is a terribly advanced example of using values as dependencies instead:
 
