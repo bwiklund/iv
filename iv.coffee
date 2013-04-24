@@ -1,4 +1,6 @@
-# a collection of dependencies
+
+
+# module class
 class IV
   
   constructor: ->
@@ -11,6 +13,7 @@ class IV
       providerFunc: func
       instance: null
       startedProviding: false
+    return # explicitly return nothing (for now)
 
   instance: ->
     # quick handrolled deep copy, didn't want to depend on any libraries for this
