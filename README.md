@@ -62,6 +62,25 @@ Notes:
 ===
 The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
 
+Node.js
+===
+
+Usage in nodejs is straightforward, although there isn't as much need for it here. For completeness:
+
+```
+npm install git://github.com/bwiklund/iv.git
+```
+
+```coffeescript
+iv = require 'iv'
+
+mod = iv()
+mod.define 'AnimalImpersonator', [], -> -> "...what sound does a giraffe make?"
+func = mod.instance().resolve "AnimalImpersonator"
+
+console.log func()
+```
+
 Contributing:
 ===
 Any contributions are welcome.
