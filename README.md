@@ -1,5 +1,5 @@
 ![Logo](https://raw.github.com/bwiklund/iv/master/docs/logo.png)
-iv
+iv.js
 ===
 a tiny dependency injection library
 
