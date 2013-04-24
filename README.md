@@ -61,7 +61,7 @@ Note the funky "-> ->". The first function is the provider, which is called once
 
 Notes
 ===
-The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency of coffeescript.
+The library's source, and these examples, are written in coffeescript, but the library is compiled to JS, and has no dependency on coffeescript.
 
 Node.js
 ===
