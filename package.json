@@ -2,7 +2,7 @@
   "name": "inject.js",
   "version": "0.0.0",
   "description": "ERROR: No README.md file found!",
-  "main": "index.js",
+  "main": "dist/module.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha -u tdd tests/test.coffee -r coffee-script"
   },
