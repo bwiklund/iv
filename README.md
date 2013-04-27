@@ -74,7 +74,7 @@ mod.define 'Foo', (Arg1,Arg2) ->
 
 This is because minification often changes argument names, which breaks the automatic parsing of them. The solution is to use three arguments, like so:
 ```coffeescript
-mod.define 'Foo', ['Arg1',Arg2'], (Arg1,Arg2) ->
+mod.define 'Foo', ['Arg1','Arg2'], (Arg1,Arg2) ->
 ```
 
 This is mostly how angularjs handles the situation, except that the function is a third argument to the definition, and not the final element in the array.
